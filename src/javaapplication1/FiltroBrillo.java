@@ -9,12 +9,15 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author fermat
  */
 public class FiltroBrillo {
+    
      private BufferedImage imageActual;
      
     //Método que devuelve una imagen abierta desde archivo
@@ -39,7 +42,9 @@ public class FiltroBrillo {
      
       public BufferedImage Brillo(int brillo){
         //Variables que almacenarán los píxeles
-        int mediaPixel,colorSRGB,rojoRGB,verdeRGB,azulRGB,red,green,blue;
+        
+        
+        int colorSRGB,red,green,blue,rojoRGB,verdeRGB,azulRGB;
         Color colorAux;
                  
         //Recorremos la imagen píxel a píxel
@@ -48,18 +53,21 @@ public class FiltroBrillo {
                 //Almacenamos el color del píxel
                 colorAux=new Color(this.imageActual.getRGB(i, j));
                 //Calculamos la media de los tres canales (rojo, verde, azul)
-                rojoRGB = (int)(colorAux.getRed()*255);
-                verdeRGB =(int)(colorAux.getGreen()*255);
-                azulRGB =(int)(colorAux.getBlue()*255);
+                rojoRGB = (int)(colorAux.getRed());
+                verdeRGB =(int)(colorAux.getGreen());
+                azulRGB =(int)(colorAux.getBlue());
                 //Brillo = color + constanteBrillo.
                 
                 
                  red = rojoRGB+brillo;
                 green = verdeRGB+brillo;
                 blue = azulRGB+brillo;
+                
+                
                 red = Math.min(Math.max(red, 0), 255);
                 green = Math.min(Math.max(green, 0), 255);
                 blue = Math.min(Math.max(blue, 0), 255); 
+                
                 
                 colorSRGB=(red << 16) | (green << 8) | blue;
                     imageActual.setRGB(i, j,colorSRGB);

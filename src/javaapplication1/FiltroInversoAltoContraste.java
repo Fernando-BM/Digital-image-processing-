@@ -49,9 +49,9 @@ public class FiltroInversoAltoContraste {
                 //Almacenamos el color del píxel
                 colorAux=new Color(this.imageActual.getRGB(i, j));
                 //Calculamos la media de los tres canales (rojo, verde, azul)
-                rojoRGB = (int)(colorAux.getRed()*255);
-                verdeRGB =(int)(colorAux.getGreen()*255);
-                azulRGB =(int)(colorAux.getBlue()*255);
+                rojoRGB = (int)(colorAux.getRed());
+                verdeRGB= (int)(colorAux.getGreen());
+                azulRGB = (int)(colorAux.getBlue());
                 
                 if( ((rojoRGB + verdeRGB + azulRGB)/3) < 127 ){
                     mediaPixel=255;
@@ -60,7 +60,7 @@ public class FiltroInversoAltoContraste {
                 }else{
                     mediaPixel=0;
                     colorSRGB=(mediaPixel << 16) | (mediaPixel << 8) | mediaPixel;
-                    imageActual.setRGB(i, j,colorSRGB);
+                    imageActual.setRGB(i,j,colorSRGB);
                     }
     
             }
@@ -87,9 +87,9 @@ public class FiltroInversoAltoContraste {
                 //Almacenamos el color del píxel
                 colorAux=new Color(this.imageActual.getRGB(i, j));
                 //Calculamos la media de los tres canales (rojo, verde, azul)
-                rojoRGB = (int)(colorAux.getRed()*255);
-                verdeRGB =(int)(colorAux.getGreen()*255);
-                azulRGB =(int)(colorAux.getBlue()*255);
+                rojoRGB = (int)(colorAux.getRed());
+                verdeRGB =(int)(colorAux.getGreen());
+                azulRGB =(int)(colorAux.getBlue());
                 
                 if( ((rojoRGB + verdeRGB + azulRGB)/3) > 127 ){
                     mediaPixel=255;

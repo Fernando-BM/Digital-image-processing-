@@ -291,6 +291,7 @@ public class Interfaz extends javax.swing.JFrame {
         Icon icono=new ImageIcon(icon.getImage().getScaledInstance(jLabelFotoFinal.getWidth(),jLabelFotoFinal.getHeight(),Image.SCALE_DEFAULT));   
         jLabelFotoFinal.setText(null);       
         jLabelFotoFinal.setIcon(icono);
+        
     }//GEN-LAST:event_TonoGris3ActionPerformed
 
     private void TonoGris1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TonoGris1ActionPerformed
@@ -387,42 +388,20 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        Numeros ventanaDes= new Numeros();
-        ventanaDes.setVisible(true);
+        
+        NivelBrillo ventanaNivel =new NivelBrillo();
+        ventanaNivel.abrirImagen(fichero);
+        ventanaNivel.setVisible(true);
          
-          
-        FiltroBrillo ObjProcesamiento =new FiltroBrillo();
-        ObjProcesamiento.abrirImagen(fichero);
-       
-           
-       
-        BufferedImage ImaPro = ObjProcesamiento.Brillo(ventanaDes.DeslizadorNum.getValue());
-        ImageIcon icon= new ImageIcon(ImaPro);
-        Icon icono=new ImageIcon(icon.getImage().getScaledInstance(jLabelFotoFinal.getWidth(),jLabelFotoFinal.getHeight(),Image.SCALE_DEFAULT));   
-        jLabelFotoFinal.setText(null);       
-        jLabelFotoFinal.setIcon(icono);
-        
-        
-        
+              
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        BufferedImage imagen;
-        FiltroMosaico aux= new FiltroMosaico();
-        File imagenSeleccionada=fichero;
-        try {
-            imagen = ImageIO.read(imagenSeleccionada);
-            
-            BufferedImage ImaPro2 =aux.mosaico(imagen, 30, 30);
-             ImageIcon icon= new ImageIcon( ImaPro2);
-            Icon icono=new ImageIcon(icon.getImage().getScaledInstance(jLabelFotoFinal.getWidth(),jLabelFotoFinal.getHeight(),Image.SCALE_DEFAULT));   
-            jLabelFotoFinal.setText(null);       
-            jLabelFotoFinal.setIcon(icono);
-        } catch (IOException ex) {
-            Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
-        }
-             
+         NumMosaico ventanaNivel =new NumMosaico();
+        ventanaNivel.abrirImagen(fichero);
+        ventanaNivel.setVisible(true);
+      
        
         
     }//GEN-LAST:event_jMenuItem8ActionPerformed
@@ -475,7 +454,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem TonoGris8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabelFoto1;
-    private javax.swing.JLabel jLabelFotoFinal;
+    public static javax.swing.JLabel jLabelFotoFinal;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
